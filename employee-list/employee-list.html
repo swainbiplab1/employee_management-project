@@ -1,0 +1,277 @@
+<!-- <div class="page-header">
+  <button class="back-btn" (click)="goToDashboard()">
+    ← Back
+  </button>
+</div>
+<div class="employee-container">
+
+  <div class="employee-card">
+
+    <h2 class="title">Create Employee</h2>
+
+    <form #empForm="ngForm">
+
+      <div class="form-group">
+        <div class="label-row">
+    <label>Employee Name</label>
+
+    <span class="error" *ngIf="name.invalid && name.touched">
+
+      <span *ngIf="name.errors?.['required']">
+        Required
+      </span>
+
+      <span *ngIf="name.errors?.['minlength']">
+        Min 3 chars
+      </span>
+
+      <span *ngIf="name.errors?.['pattern']">
+        Only letters allowed
+      </span>
+
+    </span>
+  </div>
+
+  <input
+    type="text"
+    name="name"
+    #name="ngModel"
+    placeholder="Enter employee name"
+    [(ngModel)]="employee.name"
+    required
+    minlength="3"
+    pattern="^[a-zA-Z ]+$">
+      </div>
+
+      <div class="form-group">
+
+  <div class="label-row">
+    <label>Email</label>
+
+    <span class="error" *ngIf="email.invalid && email.touched">
+
+      <span *ngIf="email.errors?.['required']">
+        Required
+      </span>
+
+      <span *ngIf="email.errors?.['email']">
+        Invalid Email
+      </span>
+
+    </span>
+  </div>
+
+  <input
+    type="email"
+    name="email"
+    #email="ngModel"
+    placeholder="Enter email"
+    [(ngModel)]="employee.email"
+    required
+    email>
+
+</div>
+
+      <div class="form-group">
+
+  <div class="label-row">
+    <label>Department</label>
+
+    <span class="error"
+          *ngIf="departmentId.invalid && departmentId.touched">
+
+      Required
+
+    </span>
+  </div>
+
+  <select
+    name="departmentId"
+    #departmentId="ngModel"
+    [(ngModel)]="employee.departmentId"
+    required>
+
+    <option [ngValue]="null">
+      Select Department
+    </option>
+
+    <option
+      *ngFor="let dept of departments"
+      [ngValue]="dept.departmentId">
+
+      {{ dept.departmentName }}
+
+    </option>
+
+  </select>
+
+</div>
+
+      <div class="button-group">
+
+        <button type="button" class="save-btn" [disabled]="empForm.invalid" (click)="createEmployee(empForm)">
+
+          Save Employee
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div> -->
+
+
+
+
+
+
+
+<!-- <div class="page-header">
+  <button class="back-btn" (click)="goToDashboard()">
+    ← Back
+  </button>
+</div> -->
+
+<div class="employee-container">
+
+  <div class="employee-card">
+
+    <div class="card-header">
+      <h2>Create Employee</h2>
+      <p>Add a new employee to the system</p>
+    </div>
+
+    <form #empForm="ngForm">
+
+      <!-- Employee Name -->
+      <div class="form-group">
+
+        <div class="label-row">
+          <label>Employee Name</label>
+
+          <span class="error" *ngIf="name.invalid && name.touched">
+
+            <span *ngIf="name.errors?.['required']">
+              Required
+            </span>
+
+            <span *ngIf="name.errors?.['minlength']">
+              Min 3 chars
+            </span>
+
+            <span *ngIf="name.errors?.['pattern']">
+              Only letters allowed
+            </span>
+
+          </span>
+        </div>
+
+        <input
+          type="text"
+          name="name"
+          #name="ngModel"
+          placeholder="Enter employee name"
+          [(ngModel)]="employee.name"
+          required
+          minlength="3"
+          pattern="^[a-zA-Z ]+$">
+
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+
+        <div class="label-row">
+          <label>Email</label>
+
+          <span class="error" *ngIf="email.invalid && email.touched">
+
+            <span *ngIf="email.errors?.['required']">
+              Required
+            </span>
+
+            <span *ngIf="email.errors?.['email']">
+              Invalid Email
+            </span>
+
+          </span>
+        </div>
+
+        <input
+          type="email"
+          name="email"
+          #email="ngModel"
+          placeholder="Enter employee email"
+          [(ngModel)]="employee.email"
+          required
+          email>
+
+      </div>
+
+      <!-- Department -->
+      <div class="form-group">
+
+        <div class="label-row">
+          <label>Department</label>
+
+          <span
+            class="error"
+            *ngIf="departmentId.invalid && departmentId.touched">
+
+            Required
+
+          </span>
+        </div>
+
+        <select
+          name="departmentId"
+          #departmentId="ngModel"
+          [(ngModel)]="employee.departmentId"
+          required>
+
+          <option [ngValue]="null">
+            Select Department
+          </option>
+
+          <option
+            *ngFor="let dept of departments"
+            [ngValue]="dept.departmentId">
+
+            {{ dept.departmentName }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="button-group">
+
+        <button
+    type="button"
+    class="back-btn"
+    (click)="goToDashboard()">
+
+    ← Back
+
+  </button>
+        <button
+          type="button"
+          class="save-btn"
+          [disabled]="empForm.invalid"
+          (click)="createEmployee(empForm)">
+
+          Save Employee
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

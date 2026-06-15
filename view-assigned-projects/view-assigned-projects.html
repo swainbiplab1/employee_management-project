@@ -1,0 +1,34 @@
+<div class="page-header">
+  <button class="back-btn" (click)="goToDashboard()">
+    ← Back
+  </button>
+</div>
+<div class="container">
+  <div class="card">
+    <h2>Assigned Projects</h2>
+
+    <table border="1" class="table">
+
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>Project Name</th>
+          <th>Assigned Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="assignments.length === 0">
+          <td colspan="5" class="no-data">
+            No Record Found
+          </td>
+        </tr>
+        <tr *ngFor="let a of assignments">
+          <td>{{ a.employeeName }}</td>
+          <td>{{ a.projectName }}</td>
+          <td>{{ a.assignedDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="project-container">
+
+  <div class="project-card">
+
+    <div class="card-header">
+      <h2>Create Project</h2>
+      <p>Add a new project to the system</p>
+    </div>
+
+    <form #projectForm="ngForm" (ngSubmit)="createProject(projectForm)">
+
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="projectName">Project Name</label>
+
+          <span class="error" *ngIf="projectName.invalid && projectName.touched">
+
+            <span *ngIf="projectName.errors?.['required']">
+              Required
+            </span>
+
+            <span *ngIf="projectName.errors?.['minlength']">
+              Min 3 chars
+            </span>
+
+            <span *ngIf="projectName.errors?.['pattern']">
+              Invalid name
+            </span>
+
+          </span>
+        </div>
+
+        <input type="text" id="projectName" name="projectName" #projectName="ngModel" [(ngModel)]="project.projectName"
+          placeholder="Enter project name" required minlength="3" pattern="^[a-zA-Z0-9 _-]+$">
+
+      </div>
+
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="startDate">Start Date</label>
+
+          <span class="error" *ngIf="startDate.invalid && startDate.touched">
+
+            Required
+
+          </span>
+        </div>
+
+        <input type="date" id="startDate" name="startDate" #startDate="ngModel" [(ngModel)]="project.startDate"
+          required>
+
+      </div>
+
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="endDate">End Date</label>
+
+          <span class="error" *ngIf="project.endDate && project.endDate < project.startDate">
+
+            End date must be after start date
+
+          </span>
+        </div>
+
+        <input type="date" id="endDate" name="endDate" #endDate="ngModel" [(ngModel)]="project.endDate" required>
+
+      </div>
+
+      <div class="button-group">
+
+        <button type="button" class="back-btn" (click)="goToDashboard()">
+
+          ← Back
+
+        </button>
+
+        <button type="submit" class="save-btn" [disabled]="projectForm.invalid ||
+                     (project.endDate &&
+                      project.endDate < project.startDate)">
+
+          Save Project
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

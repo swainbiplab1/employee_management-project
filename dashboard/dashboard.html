@@ -1,0 +1,75 @@
+
+ <div class="layout">
+
+  <header class="header">
+
+    <div class="logo">
+      Employee Management System
+    </div>
+
+    <nav class="menu">
+
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="menu-btn"
+        (click)="employeeList()">
+        Employees
+      </button>
+
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="menu-btn"
+        (click)="viewEmployeeList()">
+        View Employees
+      </button>
+
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="menu-btn"
+        (click)="projectList()">
+        Projects
+      </button>
+
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="menu-btn"
+        (click)="viewProjectList()">
+        View Projects
+      </button>
+
+      <button
+        *ngIf="role === 'ADMIN' || role === 'MANAGER'"
+        class="menu-btn"
+        (click)="assignProject()">
+        Assign Project
+      </button>
+
+      <button
+        *ngIf="role != 'MANAGER'"
+        class="menu-btn"
+        (click)="viewAssignedProjects()">
+        Assigned Projects
+      </button>
+
+    </nav>
+
+  </header>
+
+  <main class="content">
+
+    <div class="welcome-card">
+      <h2>Welcome {{ role }}</h2>
+      <p>Select a menu from the header.</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </footer>
+
+</div>

@@ -1,0 +1,235 @@
+<!-- 
+<div class="page-header">
+  <button type="button" class="back-btn" (click)="goToDashboard()">
+    ← Back
+  </button>
+</div>
+
+<div class="assign-container">
+
+  <div class="assign-card">
+
+    <h2 class="title">Assign Project to Employee</h2>
+
+    <form #assignForm="ngForm" (ngSubmit)="assign(assignForm)">
+
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="employee">Employee</label>
+
+          <span
+            class="error"
+            *ngIf="employeeId.invalid && employeeId.touched">
+
+            Required
+
+          </span>
+        </div>
+
+        <select
+          id="employee"
+          name="employeeId"
+          #employeeId="ngModel"
+          [(ngModel)]="assignment.employeeId"
+          required>
+
+          <option [ngValue]="null">
+            Select Employee
+          </option>
+
+          <option
+            *ngFor="let emp of employees"
+            [ngValue]="emp.employeeId">
+
+            {{ emp.name }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="project">Project</label>
+
+          <span
+            class="error"
+            *ngIf="projectId.invalid && projectId.touched">
+
+            Required
+
+          </span>
+        </div>
+
+        <select
+          id="project"
+          name="projectId"
+          #projectId="ngModel"
+          [(ngModel)]="assignment.projectId"
+          required>
+
+          <option [ngValue]="null">
+            Select Project
+          </option>
+
+          <option
+            *ngFor="let project of projects"
+            [ngValue]="project.projectId">
+
+            {{ project.projectName }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <button
+        type="submit"
+        class="assign-btn"
+        [disabled]="assignForm.invalid">
+
+        Assign Project
+
+      </button>
+
+      <div *ngIf="message" class="message">
+        {{ message }}
+      </div>
+
+    </form>
+
+  </div>
+
+</div> -->
+
+
+
+
+
+
+
+
+
+<div class="assign-container">
+
+  <div class="assign-card">
+
+    <div class="card-header">
+      <h2>Assign Project</h2>
+      <p>Assign a project to an employee</p>
+    </div>
+
+    <form #assignForm="ngForm" (ngSubmit)="assign(assignForm)">
+
+      <!-- Employee -->
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="employee">Employee</label>
+
+          <span
+            class="error"
+            *ngIf="employeeId.invalid && employeeId.touched">
+
+            Required
+
+          </span>
+        </div>
+
+        <select
+          id="employee"
+          name="employeeId"
+          #employeeId="ngModel"
+          [(ngModel)]="assignment.employeeId"
+          required>
+
+          <option [ngValue]="null">
+            Select Employee
+          </option>
+
+          <option
+            *ngFor="let emp of employees"
+            [ngValue]="emp.employeeId">
+
+            {{ emp.name }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <!-- Project -->
+      <div class="form-group">
+
+        <div class="label-row">
+          <label for="project">Project</label>
+
+          <span
+            class="error"
+            *ngIf="projectId.invalid && projectId.touched">
+
+            Required
+
+          </span>
+        </div>
+
+        <select
+          id="project"
+          name="projectId"
+          #projectId="ngModel"
+          [(ngModel)]="assignment.projectId"
+          required>
+
+          <option [ngValue]="null">
+            Select Project
+          </option>
+
+          <option
+            *ngFor="let project of projects"
+            [ngValue]="project.projectId">
+
+            {{ project.projectName }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+
+        <button
+          type="button"
+          class="back-btn"
+          (click)="goToDashboard()">
+
+          ← Back
+
+        </button>
+
+        <button
+          type="submit"
+          class="save-btn"
+          [disabled]="assignForm.invalid">
+
+          Assign Project
+
+        </button>
+
+      </div>
+
+      <div *ngIf="message" class="message">
+        {{ message }}
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
